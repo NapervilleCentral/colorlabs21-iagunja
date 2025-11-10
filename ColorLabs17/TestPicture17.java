@@ -43,6 +43,9 @@ public class TestPicture17
      Pixel[] pixels;
      //gets pixels from picture and assigns to pixels array
      pixels = ferris1.getPixels();
+     
+     Pixel[] mpixels;
+     mpixels = moto.getPixels();
     
      //how many pixels or how large array
     System.out.println("This is a large array"+pixels.length  );
@@ -71,7 +74,7 @@ public class TestPicture17
     System.out.println(pixels[17].getColor());
     System.out.println(spot);
     
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < 5000; i++) {
         Pixel yuck = ferris1.getPixel((int)(Math.random()) * 200, (int)(Math.random()) * 200);
         yuck.setColor(Color.green);
     }
@@ -83,15 +86,34 @@ public class TestPicture17
     pixels[500034].setColor(Color.blue);
 
     ferris1.explore();
-/*
+/**/
    // loop to access indexes of array or collection
 
     //for each loop spot  is a ?
-    for (Pixel spot : pixels)
-    System.out.println( spot );
-
-
-   
+    int red;
+    for (Pixel spot1 : mpixels){
+        //System.out.println( spot1 );
+        red = spot.getRed();
+        
+        red = (int)(red * 0.25);
+        
+        spot1.setRed(red);
+    }   
+    moto.explore();
+    
+    int blue, green;
+    for (Pixel spot1 : mpixels) {
+        blue = spot1.getBlue();
+        green = spot1.getGreen();
+        
+        blue = (int)(blue * Math.random());
+        green = (int)(green * Math.random());
+        
+        spot1.setBlue(blue);
+        spot1.setGreen(green);
+    }
+    moto.explore();
+    
  /**/
 
  /**
