@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 
-public class SheparFaireyLab
+public class ShepardFaireyLab
 {
     /**
      * main method, to test the picture
@@ -17,24 +17,22 @@ public class SheparFaireyLab
      */
     public static void main(String[] args)
     {
-        
-         //opens selfie picture 
-          /**/
-         String fileName = FileChooser.pickAFile();
-         Picture pictObj = new Picture(fileName);
-         pictObj.explore();
-         
          //relative path
-         Picture apic = new Picture("images\\beach.jpg");
+         Picture opic = new Picture("images\\jenny-red.jpg");
          //change with selfie picture
-         Picture me = new Picture("images/beach.jpg");
-         Picture me1 = new Picture("images/beach.jpg");
-         Picture me2 = new Picture("images/beach.jpg");
+         Picture meGray = new Picture("images/jenny-red.jpg");
+         Picture me1 = new Picture("images/jenny-red.jpg");
+         Picture me2 = new Picture("images/jenny-red.jpg");
+         
+         opic.explore();
          
          /**
           * method 1 change
           * 
           */
+         
+         Pixel[] mePixelsGray;
+         mePixelsGray = meGray.getPixels();
          
          /**
           * method 2 change
