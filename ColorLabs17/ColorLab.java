@@ -1,7 +1,7 @@
 
 /**
  * Uses loops to make color changes to an unchanged original picture
- * 
+ * Color Labs Program
  * @author (Imaan Gunja) 
  * @version (11-10-2025)
  */
@@ -17,13 +17,6 @@ public class ColorLab
      */
     public static void main(String[] args)
     {
-        
-         //opens selfie picture 
-          /**/
-         String fileName = FileChooser.pickAFile();
-         Picture pictObj = new Picture(fileName);
-         pictObj.explore();
-         
          //relative path
          Picture opic = new Picture("images\\beach.jpg");
          //change with selfie picture
@@ -109,13 +102,20 @@ public class ColorLab
          }
          pic4.explore();
          
-         //CHANGE OBJECT COLOR
+         //CHANGE OBJECT COLOR TO LAVENDER (BLUEIFY/COLORIFY
          Pixel[] bPixels5;
          bPixels5 = pic5.getPixels();
-         
-         int changeSky;
+         Color randSky = new Color(229, 204, 255); //lavender purple
+         int red, blue, green;
          for (Pixel spot1 : bPixels5) {
+             red = spot1.getRed();
+             blue = spot1.getBlue();
+             green = spot1.getGreen();
              
+             if ((red >= 140 && red <= 180) && (blue >= 210 && blue <= 250) && (green >= 180 && green <= 220)) {
+                 spot1.setColor(randSky);
+             }
          }
+         pic5.explore();
     }//main       
 }//class
