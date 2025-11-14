@@ -1,7 +1,9 @@
 
+ 
 /**
- * Write a description of class SheparFaireyLab here.
- * 
+ * Changes colors and shading of a picture of myself in order to reach the optimal color
+ * picture and coolest looking shading
+ * Shepard Fairey Lab
  * @author (your name) 
  * @version (a version number or a date)
  */
