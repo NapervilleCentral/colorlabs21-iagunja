@@ -8,12 +8,37 @@ dependency2.type=UsesDependency
 dependency3.from=ShepardFaireyLab
 dependency3.to=Pixel
 dependency3.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=0
 editor.fx.0.width=0
 editor.fx.0.x=0
 editor.fx.0.y=0
 objectbench.height=66
 objectbench.width=935
+=======
+<<<<<<< HEAD
+editor.fx.0.height=817
+editor.fx.0.width=760
+editor.fx.0.x=680
+editor.fx.0.y=25
+=======
+<<<<<<< HEAD
+editor.fx.0.height=1159
+editor.fx.0.width=974
+editor.fx.0.x=952
+editor.fx.0.y=2
+objectbench.height=66
+objectbench.width=935
+=======
+editor.fx.0.height=728
+editor.fx.0.width=800
+editor.fx.0.x=320
+editor.fx.0.y=55
+>>>>>>> 79f4e23aea45269ec58015b7e6dcfea037da9805
+objectbench.height=72
+objectbench.width=951
+>>>>>>> b30ce012c9e94e723df9d113c8adeb0d24ef979d
+>>>>>>> d057e2e6b58f378beccd796743cc385029d0da75
 package.divider.horizontal=0.6
 package.divider.vertical=0.8253588516746412
 package.editor.height=338
