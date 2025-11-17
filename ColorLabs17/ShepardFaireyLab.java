@@ -44,6 +44,7 @@ public class ShepardFaireyLab
              
              spot1.setColor(gray);
          }
+         meGray.write("images/imaanGray.jpg");
          meGray.explore();
          
          /**
