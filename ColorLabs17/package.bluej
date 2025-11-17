@@ -8,12 +8,21 @@ dependency2.type=UsesDependency
 dependency3.from=ShepardFaireyLab
 dependency3.to=Pixel
 dependency3.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=1159
 editor.fx.0.width=974
 editor.fx.0.x=952
 editor.fx.0.y=2
 objectbench.height=66
 objectbench.width=935
+=======
+editor.fx.0.height=728
+editor.fx.0.width=800
+editor.fx.0.x=320
+editor.fx.0.y=55
+objectbench.height=72
+objectbench.width=951
+>>>>>>> b30ce012c9e94e723df9d113c8adeb0d24ef979d
 package.divider.horizontal=0.6
 package.divider.vertical=0.8253588516746412
 package.editor.height=338
