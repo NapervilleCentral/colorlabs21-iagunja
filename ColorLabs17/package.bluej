@@ -8,50 +8,19 @@ dependency2.type=UsesDependency
 dependency3.from=ShepardFaireyLab
 dependency3.to=Pixel
 dependency3.type=UsesDependency
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
-editor.fx.0.y=0
-objectbench.height=66
-objectbench.width=935
-=======
-<<<<<<< HEAD
-editor.fx.0.height=817
-editor.fx.0.width=760
-editor.fx.0.x=680
-editor.fx.0.y=25
-=======
-<<<<<<< HEAD
-editor.fx.0.height=1159
-editor.fx.0.width=974
-editor.fx.0.x=952
-editor.fx.0.y=2
-objectbench.height=66
-objectbench.width=935
-=======
->>>>>>> 4be21bbed7e06c9ad01ff5c1a88f090cfa681f25
 editor.fx.0.height=728
-editor.fx.0.width=682
-editor.fx.0.x=758
+editor.fx.0.width=1006
+editor.fx.0.x=434
 editor.fx.0.y=54
-objectbench.height=72
-<<<<<<< HEAD
+objectbench.height=107
 objectbench.width=816
-=======
-objectbench.width=951
->>>>>>> b30ce012c9e94e723df9d113c8adeb0d24ef979d
->>>>>>> d057e2e6b58f378beccd796743cc385029d0da75
->>>>>>> 4be21bbed7e06c9ad01ff5c1a88f090cfa681f25
 package.divider.horizontal=0.6
-package.divider.vertical=0.8949468085106383
-package.editor.height=666
+package.divider.vertical=0.848202396804261
+package.editor.height=630
 package.editor.width=724
 package.editor.x=600
 package.editor.y=25
-package.frame.height=816
+package.frame.height=815
 package.frame.width=840
 package.numDependencies=3
 package.numTargets=4
