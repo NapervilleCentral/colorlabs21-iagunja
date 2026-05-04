@@ -9,7 +9,7 @@
 import java.awt.*; // the color class is in the awt library
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
-public class TestPicture17
+public class PosterMain
 {
 
     /**
@@ -30,14 +30,16 @@ public class TestPicture17
      //KNOW IT, LOVE IT, LIVE IT (will be on the test)
      //relative path (will be on the test) - dir/folder/file
      Picture apic = new Picture("images\\beach.jpg");
-     //Picture acanvas = new Picture("images\\Canvas4.jpg");
+     Picture acanvas = new Picture("images\\Canvas4.jpg");
      Picture ferris1 = new Picture("images/2000 ferris wheel2.jpg");
      Picture moto = new Picture("images/redMotorcycle.jpg");
      Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
 
+     mirrorVertical(moto);
      apic.explore();
-     ferris1.explore(); // displays the picture
-     moto.explore();
+     copyToCanvas(apic, acanvas);
+     //ferris1.explore(); // displays the picture
+     //moto.explore();
      
      //A GIVEN - YOU HAVE TO DO THIS FOR EVERY IMAGE
      //makes an array of pixels
@@ -171,5 +173,46 @@ final double  FACTOR = .5;
    * the width
    */
   
+  public static void mirrorVertical(Picture source)
+  {
+      int width = source.getWidth();
+      int mirrorPoint = width / 2;
+      Pixel leftPixel = null;
+      Pixel rightPixel = null;
+      
+      //loop through all the rows
+      for (int y = 0; y < source.getHeight(); y++)
+      {
+          //loop from 0 to the middle (mirror Point)
+          for (int x = 0; x < mirrorPoint; x++)
+          {
+              leftPixel = source.getPixel(x, y);
+              rightPixel = source.getPixel(width - 1 - x, y);
+              
+              rightPixel.setColor(leftPixel.getColor());
+          }
+      }
+  }
   
+  /**
+   * copy one pic to another pic/canvas
+   * add two ints to the params to place you want picture on the target
+   */
+  public static void copyToCanvas(Picture source, Picture target)
+  {
+      Pixel sourcePix = null;
+      Pixel targetPix = null;
+      
+      //loop through the columns (targetX is the starting point on the Canvas)
+      for (int sourceX = 0, targetX = 0; sourceX < source.getWidth(); sourceX++, targetX++)
+      {
+          //loop through the rows
+          for (int sourceY = 0, targetY = 0; sourceY < source.getHeight(); sourceY++, targetY++)
+          {
+              sourcePix = source.getPixel(sourceX, sourceY);
+              targetPix = target.getPixel(targetX, targetY);
+              targetPix.setColor(sourcePix.getColor());
+          }
+      }
+  }
 }//class
