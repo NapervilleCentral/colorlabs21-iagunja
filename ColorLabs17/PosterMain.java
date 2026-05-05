@@ -203,7 +203,7 @@ final double  FACTOR = .5;
       Pixel sourcePix = null;
       Pixel targetPix = null;
       
-      //loop through the columns (targetX is the starting point on the Canvas)
+      //loop through the columns (targetX is the starting point on the Canvas) sourceX += 2
       for (int sourceX = 0, targetX = 0; sourceX < source.getWidth(); sourceX++, targetX++)
       {
           //loop through the rows
