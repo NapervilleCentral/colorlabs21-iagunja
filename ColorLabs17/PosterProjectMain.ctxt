@@ -6,4 +6,6 @@ comment1.target=void\ main(java.lang.String[])
 comment2.params=sourcePic\ targetPic
 comment2.target=void\ copyToCanvas(Picture,\ Picture)
 comment2.text=\r\n\ copy\ from\ source\ to\ target\r\n\ position\ of\ int\ x,\ y\ for\ placement\ on\ the\ target\r\n
-numComments=3
+comment3.params=source
+comment3.target=void\ mirrorVertical(Picture)
+numComments=4

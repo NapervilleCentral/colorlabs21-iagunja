@@ -31,7 +31,7 @@ public class PosterProjectMain
         canvas.explore();
         
         temple.explore();
-        mirrorTemple(temple);
+        mirrorVertical(temple);
         temple.explore();
     }
     
