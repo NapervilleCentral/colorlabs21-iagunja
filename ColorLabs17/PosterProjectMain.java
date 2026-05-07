@@ -55,7 +55,7 @@ public class PosterProjectMain
                 targetPix.setColor(sourcePix.getColor());
             }//loop
         }//loop
-    }//end of copyKatie
+    }//end of copyToCanvas
     
     public static void mirrorVertical(Picture source)
     {
@@ -75,4 +75,6 @@ public class PosterProjectMain
             }
         }
     }
+    
+    
 }
