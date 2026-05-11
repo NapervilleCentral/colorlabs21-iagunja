@@ -14,22 +14,43 @@ public class PosterProjectMain
 {
     public static void main(String[] args)
     {
-        Picture apic = new Picture("images\\docMcStuffinsSIZED.jpg");
+        Picture original = new Picture("images\\docMcStuffinsSIZED.jpg");
         Picture canvas = new Picture("images\\Canvas1.jpg");
         Picture temple = new Picture("images\\temple.jpg");
         
+        copyToCanvasCollage(original, canvas, 0, 0);
+        
+        Picture gray = new Picture("images\\docMcStuffinsSIZED.jpg");
+        grayscale(gray);
+        copyToCanvasCollage(gray, canvas, 667, 0);
+        
+        Picture sepia = new Picture("images\\docMcStuffinsSIZED.jpg");
+        sepiaTint(sepia);
+        copyToCanvasCollage(sepia, canvas, 1333, 0);
+        
+        Picture negated = new Picture("images\\docMcStuffinsSIZED.jpg");
+        negate(negated);
+        copyToCanvasCollage(negated, canvas, 0, 500);
+        
+        Picture poster = new Picture("images\\docMcStuffinsSIZED.jpg");
+        posterize(poster, 4);
+        copyToCanvasCollage(poster, canvas, 667, 500);
+        
+        Picture mirrored = new Picture("images\\docMcStuffinsSIZED.jpg");
+        mirror(mirrored);
+        copyToCanvasCollage(mirrored, canvas, 1333, 500);
         
         //makes an array of pixels--GIVEN YOU NEED THIS
         Pixel[] pixels;
         //gets pixels from picture and assigns to pixels array
-        pixels = apic.getPixels();//GET ALL THE PIXELS
+        pixels = original.getPixels();//GET ALL THE PIXELS
         for (Pixel spot : pixels)
         {
             //System.out.println( spot );
             spot.setRed((int)(spot.getRed() *.1));
         }
-        apic.explore();//method - does something
-        copyToCanvas(apic,canvas);
+        original.explore();//method - does something
+        copyToCanvas(original, canvas);
         canvas.explore();
         
         temple.explore();
@@ -77,8 +98,11 @@ public class PosterProjectMain
                 int targetY = startY + sourceY;
                 
                 if (targetX >= 0 && targetX < targetPic.getWidth()
+                    && targetY >= 0 && targetY < targetPic.getHeight())
                 {
-                    
+                    sourcePix = sourcePic.getPixel(sourceX, sourceY);
+                    targetPix = targetPic.getPixel(targetX, targetY);
+                    targetPix.setColor(sourcePix.getColor());
                 }
             }//loop
         }//loop
@@ -103,8 +127,120 @@ public class PosterProjectMain
         }
     }
     
-    public static void collage(Picture source)
+    public static void grayscale(Picture source)
     {
+        Pixel[] pixels = source.getPixels();
         
+        for (Pixel p : pixels)
+        {
+            int avg = (p.getRed() + p.getGreen() + p.getBlue()) / 3;
+            
+            p.setRed(avg);
+            p.setGreen(avg);
+            p.setBlue(avg);
+        }
+    }
+    
+    public static void sepiaTint(Picture source)
+    {
+        grayscale(source);
+        
+        Pixel[] pixels = source.getPixels();
+        
+        for (Pixel p : pixels)
+        {
+            int red = p.getRed();
+            int green = p.getGreen();
+            int blue = p.getBlue();
+            
+            if (red < 60)
+            {
+                red = (int)(red * 0.9);
+                green = (int)(green * 0.9);
+                blue = (int)(blue * 0.9);
+            }
+            else if (red < 190)
+            {
+                red = (int)(red * 1.2);
+                green = (int)(green * 1.1);
+                blue = (int)(blue * 0.8);
+            }
+            else
+            {
+                red = (int)(red * 1.1);
+                green = (int)(green * 1.05);
+                blue = (int)(blue * 0.9);
+            }
+            
+            p.setRed(limitColor(red));
+            p.setGreen(limitColor(green));
+            p.setBlue(limitColor(blue));
+        }
+    }
+    
+    public static void negate(Picture source)
+    {
+        Pixel[] pixels = source.getPixels();
+        
+        for (Pixel p : pixels)
+        {
+            p.setRed(255 - p.getRed());
+            p.setGreen(255 - p.getGreen());
+            p.setBlue(255 - p.getBlue());
+        }
+    }
+    
+    public static void posterize(Picture source, int levels)
+    {
+        Pixel[] pixels = source.getPixels();
+        
+        int step = 256 / levels;
+        
+        for (Pixel p : pixels)
+        {
+            int red = (p.getRed() / step) * step;
+            int green = (p.getGreen() / step) * step;
+            int blue = (p.getBlue() / step) * step;
+            
+            p.setRed(limitColor(red));
+            p.setGreen(limitColor(green));
+            p.setBlue(limitColor(blue));
+        }
+    }
+    
+    public static void mirror(Picture source)
+    {
+        int width = source.getWidth();
+        int mirrorPoint = width / 2;
+        
+        Pixel leftPixel = null;
+        Pixel rightPixel = null;
+        
+        for (int y = 0; y < source.getHeight(); y++)
+        {
+            for (int x = 0; x < mirrorPoint; x++)
+            {
+                leftPixel = source.getPixel(x, y);
+                rightPixel = source.getPixel(width - 1 - x, y);
+                
+                rightPixel.setColor(leftPixel.getColor());
+            }
+        }
+    }
+    
+    public static int limitColor(int value)
+    {
+        if (value < 0)
+        {
+            return 0;
+        }
+        else if (value > 255)
+        {
+            return 255;
+        }
+        else
+        {
+            return value;
+        }
     }
 }

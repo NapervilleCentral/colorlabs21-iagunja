@@ -12,19 +12,11 @@ dependency4.from=PosterProjectMain
 dependency4.to=Pixel
 dependency4.type=UsesDependency
 editor.fx.0.height=813
-<<<<<<< HEAD
-editor.fx.0.width=971
-editor.fx.0.x=989
-editor.fx.0.y=0
-objectbench.height=104
-objectbench.width=928
-=======
 editor.fx.0.width=939
 editor.fx.0.x=501
 editor.fx.0.y=25
 objectbench.height=112
 objectbench.width=915
->>>>>>> 5bae35348feedeb7920508d1a98db440bdef6f6a
 package.divider.horizontal=0.6
 package.divider.vertical=0.8411214953271028
 package.editor.height=623
