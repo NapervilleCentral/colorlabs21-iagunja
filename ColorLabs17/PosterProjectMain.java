@@ -32,9 +32,9 @@ public class PosterProjectMain
         negate(negated);
         copyToCanvasCollage(negated, canvas, 0, 500);
         
-        Picture poster = new Picture("images\\docMcStuffinsSIZED.jpg");
-        posterize(poster, 4);
-        copyToCanvasCollage(poster, canvas, 667, 500);
+        Picture recursive = new Picture("images\\docMcStuffinsSIZED.jpg");
+        recurse(recursive, 0, 0, 667, 500);
+        copyToCanvasCollage(recursive, canvas, 667, 500);
         
         Picture mirrored = new Picture("images\\docMcStuffinsSIZED.jpg");
         mirror(mirrored);
@@ -49,13 +49,15 @@ public class PosterProjectMain
             //System.out.println( spot );
             spot.setRed((int)(spot.getRed() *.1));
         }
-        original.explore();//method - does something
+        
+        canvas.explore();
+        /*original.explore();//method - does something
         copyToCanvas(original, canvas);
         canvas.explore();
         
         temple.explore();
         mirrorVertical(temple);
-        temple.explore();
+        temple.explore();*/
     }
     
     /**
@@ -84,26 +86,20 @@ public class PosterProjectMain
     * copy from source to target
     * position of int x, y for placement on the target
     */
-    public static void copyToCanvasCollage(Picture sourcePic, Picture targetPic, int startX, int startY)
+    public static void copyToCanvasCollage(Picture sourcePic, Picture targetPic, int x, int y)
     {
         Pixel sourcePix = null;
         Pixel targetPix = null;
         //width of the source must be <= to the canvas I am
         //going to copy to
-        for (int sourceX = 0; sourceX < sourcePic.getWidth(); sourceX++, targetX ++)
+        for (int sourceX = 0, targetX = 0; sourceX < sourcePic.getWidth(); sourceX++, targetX ++)
         {
-            for (int sourceY = 0; sourceY < sourcePic.getHeight(); sourceY++, targetY ++)
+            for (int sourceY = 0, targetY = 0; sourceY < sourcePic.getHeight(); sourceY++, targetY ++)
             {
-                int targetX = startX + sourceX;
-                int targetY = startY + sourceY;
-                
-                if (targetX >= 0 && targetX < targetPic.getWidth()
-                    && targetY >= 0 && targetY < targetPic.getHeight())
-                {
-                    sourcePix = sourcePic.getPixel(sourceX, sourceY);
-                    targetPix = targetPic.getPixel(targetX, targetY);
-                    targetPix.setColor(sourcePix.getColor());
-                }
+                //set the target pix color of the source pix
+                sourcePix = sourcePic.getPixel(sourceX,sourceY);
+                targetPix = targetPic.getPixel(targetX + x,targetY + y);
+                targetPix.setColor(sourcePix.getColor());
             }//loop
         }//loop
     }//end of copyToCanvas
@@ -188,6 +184,22 @@ public class PosterProjectMain
             p.setGreen(255 - p.getGreen());
             p.setBlue(255 - p.getBlue());
         }
+    }
+    
+    public static void recurse(Picture source, int x, int y, int w, int h)
+    {
+        if (w < 20 || h < 20)
+        {
+            return;
+        }
+        
+        for (int col = 0; col < w; col++) {
+            for (int row = 0; row < h; row++) {
+            Pixel sourcePix = source.getPixel((int)(col * (source.getWidth() / (double)w)),(int)(row * (source.getHeight() / (double)h)));
+            source.getPixel(x + col, y + row).setColor(sourcePix.getColor());
+            }
+        }
+        recurse(source, x + 10, y + 10, w / 2, h / 2);
     }
     
     public static void posterize(Picture source, int levels)
