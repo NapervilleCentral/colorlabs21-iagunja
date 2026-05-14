@@ -40,6 +40,8 @@ public class PosterProjectMain
         mirror(mirrored);
         copyToCanvasCollage(mirrored, canvas, 1333, 500);
         
+        canvas.write("images\\IGunjafinalCollage.jpg");
+        
         //makes an array of pixels--GIVEN YOU NEED THIS
         Pixel[] pixels;
         //gets pixels from picture and assigns to pixels array
