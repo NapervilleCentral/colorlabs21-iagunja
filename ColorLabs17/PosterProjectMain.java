@@ -26,7 +26,7 @@ public class PosterProjectMain
         
         Picture sepia = new Picture("images\\docMcStuffinsSIZED.jpg");
         sepiaTint(sepia);
-        copyToCanvasCollage(sepia, canvas, 1333, 0);
+        copyToCanvasCollage(sepia, canvas, 1333, 500);
         
         Picture negated = new Picture("images\\docMcStuffinsSIZED.jpg");
         negate(negated);
@@ -38,7 +38,7 @@ public class PosterProjectMain
         
         Picture mirrored = new Picture("images\\docMcStuffinsSIZED.jpg");
         mirror(mirrored);
-        copyToCanvasCollage(mirrored, canvas, 1333, 500);
+        copyToCanvasCollage(mirrored, canvas, 1333, 0);
         
         canvas.write("images\\IGunjafinalCollage.jpg");
         
